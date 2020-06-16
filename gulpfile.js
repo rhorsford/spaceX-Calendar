@@ -5,8 +5,6 @@ const
     noop = require('gulp-noop'),
     newer = require('gulp-newer'),
     htmlclean = require('gulp-htmlclean'),
-
-    concat = require('gulp-concat'),
     deporder = require('gulp-deporder'),
     terser = require('gulp-terser'),
 
@@ -40,7 +38,6 @@ function html() {
 }
 
 exports.html = gulp.series(html);
-// exports.html = gulp.series(images, html);
 
 
 function js() {
@@ -48,7 +45,6 @@ function js() {
     return gulp.src(src + 'js/**/*')
         .pipe(sourcemaps ? sourcemaps.init() : noop())
         .pipe(deporder())
-        // .pipe(concat('main.js'))
         .pipe(stripdebug ? stripdebug() : noop())
         .pipe(terser())
         .pipe(sourcemaps ? sourcemaps.write() : noop())
@@ -80,14 +76,10 @@ function css() {
 exports.css = gulp.series(css);
 
 exports.build = gulp.parallel(exports.html, exports.css, exports.js);
-// exports.css = gulp.series(images, css);
 
 
 // watch for file changes
 function watch(done) {
-
-    // image changes
-    // gulp.watch(src + 'images/**/*', images);
 
     // html changes
     gulp.watch(src + 'html/**/*', html);
