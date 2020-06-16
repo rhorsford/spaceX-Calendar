@@ -1,0 +1,75 @@
+table {
+  @include bp(medium) {
+    width: 100%;
+  }
+
+  thead {
+    th {
+      @include bp(medium) {
+        width: 7%;
+        font-size: 0.8em;
+        padding: 5px 0;
+      }
+    }
+  }
+
+  tbody {
+    td {
+      @include bp(medium) {
+        cursor: pointer;
+        padding: 0;
+        width: 7%;
+        height: 50px;
+        position: relative;
+        span {
+          visibility: hidden;
+          width: 120px;
+          text-align: center;
+          position: absolute;
+          z-index: 1;
+
+
+        }
+      }
+
+
+      &.bg-space {
+        &:hover {
+          @include bp(medium) {
+            border: 1px dashed green;
+          }
+        }
+
+        &:hover span {
+          @include bp(medium) {
+            visibility: visible;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+.form-inline {
+  @include bp(medium) {
+    width: 100%;
+  }
+  button {
+    @include bp(small) {
+      width: 100%;
+      max-width: 100%;
+    }
+
+    &:last-child {
+      margin-bottom: 1.5%;
+    }
+  }
+}
+
+
+.col-12 {
+  @include bp(small) {
+    margin: 1.5% 5px;
+  }
+}

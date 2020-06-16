@@ -1,0 +1,111 @@
+table {
+  width: auto;
+  border-spacing: 0;
+
+  thead {
+    border-spacing: 0;
+
+    th {
+      border: 1px solid #ddd;
+      padding: 15px 20px;
+      width: 100px;
+    }
+  }
+
+  tbody {
+    td {
+      border: 1px solid #ddd;
+      position: relative;
+      width: 140px;
+      height:100px;
+      vertical-align: bottom;
+      padding: 10px 15px;
+
+      span {
+        display: inline-block;
+        width: 98%;
+        padding: 2px;
+        background-color: #ff666d;
+        font-size: 11px;
+        top: 0;
+        left: 0;
+      }
+
+      &.bg-info {
+        background-color: #fdff76;
+      }
+      &.bg-space {
+        background-color: #a9ff46;
+      }
+    }
+  }
+}
+
+.btn{
+  margin-top: 1em;
+  color: white;
+  padding: 15px 15px;
+  max-width: 47.5%;
+  width: 100%;
+  border: 0;
+}
+
+.btn-outline-primary {
+  background-color: #7dce7b;
+}
+
+.form-inline {
+ float: left;
+  display: inline-block;
+  width: 50%;
+
+  &.full {
+    width: 100%;
+
+    p {
+      &.today, &.launch{
+        padding-left: 30px;
+        position: relative;
+
+        &:before {
+          content:'';
+          display: inline-block;
+          width: 20px;
+          height: 20px;
+          border: 1px solid #ddd;
+          position: absolute;
+          left: 0;
+          top: 0;
+        }
+      }
+
+      &.today{
+        &:before {
+          background-color: #fdff76;
+        }
+      }
+
+      &.launch{
+        &:before {
+          background-color: #a9ff46;
+        }
+      }
+    }
+  }
+
+  label {
+    width: 70px;
+    display: inline-block;
+  }
+
+  .form-control {
+    width: calc(45.5% - 70px);
+    padding: 8px 5px;
+    margin-top: 13px;
+  }
+}
+
+.card {
+  margin-bottom: 20px;
+  display: inline-block;
+}

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="../css/main.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Space X Calendar</title>
+</head>
+<body>
+
+<div class="container">
+    <div class="col-12">
+        <h1>Space X Calendar</h1>
+    </div>
+    <div class="col-12">
+        <div class="card">
+            <h3 class="card-header" id="monthAndYear"></h3>
+            <table class="table table-bordered table-responsive-sm" id="calendar">
+                <thead>
+                <tr></tr>
+                </thead>
+                <tbody id="calendar-body">
+                </tbody>
+            </table>
+            <div class="form-inline full">
+                <h2>Key</h2>
+                <p class="today">Today's Date</p>
+                <p class="launch">Launch Date</p>
+            </div>
+
+            <div class="form-inline">
+                <button class="btn btn-outline-primary col-sm-6" id="previous">Previous</button>
+                <button class="btn btn-outline-primary col-sm-6" id="next">Next</button>
+            </div>
+            <form class="form-inline">
+                <label class="lead mr-2 ml-2" for="month">Jump To: </label>
+                <select class="form-control" name="month" id="month">
+                </select>
+                <select class="form-control" name="year" id="year">
+                </select>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+<script type="application/javascript" src="../js/main.js"></script>
+</html>
