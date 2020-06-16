@@ -24,13 +24,10 @@
 
     function callAjax(url, callback) {
         var xmlhttp;
-        // compatible with IE7+, Firefox, Chrome, Opera, Safari
         xmlhttp = new XMLHttpRequest();
         xmlhttp.onreadystatechange = function () {
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-
                 obj = JSON.parse(xmlhttp.responseText);
-                console.log(obj, 'object')
                 fetchResults.concat(obj);
                 showCalendar(currentMonth, currentYear);
             }
@@ -40,7 +37,6 @@
     }
 
     function processResults() {
-        console.log(obj, "array");
         var result = obj.map(item => ({
                 date: item.launch_date_local, text: item.mission_name
             })
@@ -99,8 +95,7 @@
 
         let firstDay = (new Date(year, month)).getDay();
         var tbl = document.getElementById("calendar-body"); // body of the calendar
-
-        results = processResults();
+        var results = processResults();
 
         tbl.innerHTML = "";
 
@@ -124,35 +119,25 @@
                 } else if (date > daysInMonth(month, year)) {
                     break;
                 } else {
-                    cell = document.createElement("td");
-                    cellText = document.createTextNode(date);
+                    var cell = document.createElement("td"),
+                        cellText = document.createTextNode(date);
                     if (date === today.getDate() && year === today.getFullYear() && month === today.getMonth()) {
                         cell.classList.add("bg-info");
                     }
 
-                    console.log(results);
-
                     var monthPart = month + 1;
-
                     var monthMatch = monthPart.toString();
-
-                    console.log(monthMatch);
-
                     const result = results.filter(h => h.date.includes("0" + monthMatch));
-                    console.log(result);
 
                     for (var k = 0; k < result.length; k++) {
 
                         var part = result[k].date.split(/-|T/g);
                         var missionName = result[k].text;
-                        console.log(part[2]);
-                        console.log(missionName);
-                        console.log(part);
                         var dateInt = parseInt(part[2]);
                         var monthInt = parseInt(part[1]);
                         var yearInt = parseInt(part[0]);
                         var timeInt = part[3];
-                        var missionDetails = (missionName +' ('+ timeInt +')');
+                        var missionDetails = (missionName + ' (' + timeInt + ')');
 
                         if (dateInt === date && yearInt === year && monthInt === month + 1) {
                             cell.classList.add("bg-space");
