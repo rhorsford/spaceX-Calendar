@@ -152,7 +152,6 @@
                     date++;
                 }
             }
-
             tbl.appendChild(row); // appending each row into calendar body.
         }
     }
